@@ -71,6 +71,35 @@ router.route('/bears/:bear_id')
 	})
 
 
+	.put(function(req,res) {
+		Bear.findById(req.params.bear_id, function(err,bear) {
+				if (err) {
+				console.log(err);
+				} else {
+				bear.name = req.body.name ? req.body.name : bear.name;  //terniary expression (expression always returns a value)
+				bear.age = req.body.age ? req.body.age : bear.age;
+				bear.gender = req.body.gender ? req.body.gender : bear.gender;
+
+					bear.save(function(err, newBear) {
+					if (err) {
+						console.log(err);
+					} else {
+					res.json({message: 'Bear updated!'});
+					}
+
+				})
+			}
+		})
+	})
+
+
+
+
+
+
+
+
+
 
 
 app.use('/api', router);  //this states that fill in api after //
