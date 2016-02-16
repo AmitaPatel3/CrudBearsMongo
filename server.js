@@ -58,6 +58,20 @@ router.route('/bears')
 	});
 
 
+router.route('/bears/:bear_id')
+	.get(function(req,res) {
+		Bear.findById(req.params.bear_id, function(err,bear) { //findById comes with mongoose
+			if (err) {
+				console.log(err);
+			} else {
+				res.json(bear);
+			}
+		})
+
+	})
+
+
+
 
 app.use('/api', router);  //this states that fill in api after //
 
