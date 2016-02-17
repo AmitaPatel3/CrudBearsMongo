@@ -27,8 +27,10 @@ app.get('/about', function(req,res){
 });
 
 app.get('/bears', function(req,res){
+	var data = {};
+	data.title = "Bears oh my!"
 
-	res.render('bears', {title: "bears oh my!"})
+	res.render('bears', data)
 });
 
 var port = process.env.PORT || 8080;
