@@ -18,6 +18,20 @@ app.get('/', function(req, res){  //we are then saying, app, here's the function
 	res.render('index', {title: 'welcome to my app about bears'})
 });
 
+
+app.get('/bears', function(req,res) {
+	Bear.find(function(err,bears) {
+			if(err) {
+				console.log(err)
+			} else {
+				res.render('bears', {bears: bears})
+			}
+		})
+});
+
+
+
+
 app.get('/about', function(req,res){
 	var data = {};
 	data.title = 'about page'

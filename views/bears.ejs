@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title><%=title%></title>
+<title>Bears, Bears & More Bears</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -14,13 +14,15 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Bears Oh My!</h1>
-			<p>Contents ...</p>
-			<p>
+			
+			
+			
 				<a class="btn btn-success btn-lg" href="/">Home</a>
 				<a class="btn btn-warning btn-lg" href="about">About</a>
 			</p>
 		<table class="table table-hover">
 			<thead>
+
 				<tr>
 					<th>name</th>
 					<th>age</th>
@@ -28,28 +30,15 @@
 				</tr>
 			</thead>
 			<tbody>
+				<% for(var i = 0; i < bears.length; i++) { %>
 				<tr>
-					<td>amita</td>
-					<td>38</td>
-					<td>female</td>
+					<td> <%= bears[i].name %> </td>
+					<td> <%= bears[i].age %> </td>
+					<td> <%= bears[i].gender %> </td>
 				</tr>
-				<tr>
-					<td>drowsy</td>
-					<td>100</td>
-					<td>male</td>
-				</tr>
-				<tr>
-					<td>scary</td>
-					<td>45</td>
-					<td>female</td>
-				</tr>
+				<% } %>
 			</tbody>
 		</table>
-
-
-
-
-
 
 		</div>
 	</div>
