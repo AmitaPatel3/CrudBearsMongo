@@ -19,7 +19,16 @@ app.get('/', function(req, res){  //we are then saying, app, here's the function
 });
 
 app.get('/about', function(req,res){
-	res.render('about', {title: 'it is all about us'})
+	var data = {};
+	data.title = 'about page'
+	data.name = 'amita';
+	data.time = new Date();
+	res.render('about', data);
+});
+
+app.get('/bears', function(req,res){
+
+	res.render('bears', {title: "bears oh my!"})
 });
 
 var port = process.env.PORT || 8080;
