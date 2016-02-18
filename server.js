@@ -12,14 +12,16 @@ var Bear = require('./models/bear');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static('public')); //tells our server that everything in the folder 'public' is served as static files
+
 app.set('view engine', 'ejs'); //we are configuring our app--telling our app how to handle this function--view our engine using ejs
 
 app.get('/', function(req, res){  //we are then saying, app, here's the function--render the index
-	res.render('index', {title: 'welcome to my app about bears'})
+	res.render('index', {title: 'welcome to my app about bears'})				//linking to index.ejs
 });
 
 
-app.get('/bears', function(req,res) {
+app.get('/bears', function(req,res) {					//linking to ejs file--bears.ejs
 	Bear.find(function(err,bears) {
 			if(err) {
 				console.log(err)
@@ -32,7 +34,7 @@ app.get('/bears', function(req,res) {
 
 
 
-app.get('/about', function(req,res){
+app.get('/about', function(req,res){					//lining to ejs file--about.ejs
 	var data = {};
 	data.title = 'about page'
 	data.name = 'amita';
@@ -40,7 +42,7 @@ app.get('/about', function(req,res){
 	res.render('about', data);
 });
 
-app.get('/bears', function(req,res){
+app.get('/bears', function(req,res){				//linking to ejs file--//bears.ejs
 	var data = {};
 	data.title = "Bears oh my!"
 

@@ -16,7 +16,7 @@
 			<h1>Bears Oh My!</h1>
 			
 			
-			
+				
 				<a class="btn btn-success btn-lg" href="/">Home</a>
 				<a class="btn btn-warning btn-lg" href="about">About</a>
 			</p>
@@ -29,18 +29,44 @@
 					<th>gender</th>
 				</tr>
 			</thead>
-			<tbody>
-				<% for(var i = 0; i < bears.length; i++) { %>
-				<tr>
+			<tbody id="bearTable">
+				<% for(var i = 0; i < bears.length; i++) { %>   
+				<tr id="<%= bears[i]._id %>">
 					<td> <%= bears[i].name %> </td>
 					<td> <%= bears[i].age %> </td>
 					<td> <%= bears[i].gender %> </td>
+					<td><button type="button" class="btn btn-warning deleteBear">Delete</button></td>
+					
+
 				</tr>
 				<% } %>
 			</tbody>
 		</table>
-
 		</div>
+
+		<form role="form">   
+			<legend></legend>
+				<div class="form-group">
+					<label for="">Name</label>
+					<input required name="name" input type="text" class="form-control" id="name" placeholder="Name">
+				</div>
+		
+			<legend></legend>
+				<div class="form-group">
+					<label for="">Age</label>
+				 	<input required name="age" input type="text" class="form-control" id="age" placeholder="Age">
+				</div>
+		
+		
+			<legend></legend>
+				<div class="form-group">
+					<label for="">Gender</label>
+					<input required name="gender" input type="text" class="form-control" id="gender" placeholder="Gender">
+				</div>
+			
+			<button type="submit" class="btn btn-primary" id="addBear">Create</button>
+		</form>
+	
 	</div>
 
 <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
