@@ -48,6 +48,7 @@ var addBear = function (event) {
 	bear.age = age;
 	bear.gender = gender;
 
+
 	$.ajax({
 		url: '/api/bears/',
 		method: 'POST',
